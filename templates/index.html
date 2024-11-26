@@ -7,8 +7,28 @@
     <title>Főoldal</title>
 </head>
 <body>
-    <h1>Üdvözöllek a növények világában!</h1>
-    <img src="{{ url_for('static', filename='images/plant.jpg') }}" alt="Növények képe" width="500">
-    <p><a href="{{ url_for('tabla') }}">Nézd meg a növények táblázatát!</a></p>
+    <h1>Üdvözöllek!</h1>
+    <img src="{{ url_for('static', filename='images/shop.jpg') }}" alt="Növények képe" width="500">
+    <p><a href="{{ url_for('add') }}">Új termékek hozzáadása!</a></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Név</th>
+                <th>Ár</th>
+                <th>Kategória</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.category }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
+
 </html>
