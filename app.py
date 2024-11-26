@@ -2,41 +2,33 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-@app.route('/', methods=["GET"])
+@app.route('/index', methods=["GET"])
 def index():
     return render_template('index.html')
 
-@app.route('/home')
-def tabla():
+@app.route('/add')
+def add():
     products = [
         {"name": "Laptop", "price": "250000 Ft", "category": "Elektronika"},
         {"name": "Fotel", "price": "50000 Ft", "category": "Bútor"},
         {"name": "Okosóra", "price": "75000 Ft", "category": "Elektronika"}
     ]
-    return render_template('add.html', products=products)
+    return render_template('index.html', products=products)
 
-@app.route('/pizza-order', methods=["GET", "POST"])
-def pizza_order():
+@app.route('/add', methods=["GET", "POST"])
+def add_products():
     if request.method == "POST":
         _name = request.form.get("name")
-        _phone = request.form.get("phone")
-        _size = request.form.get("size")
-        _toppings = request.form.get("toppings")
-        _quantity = request.form.get("quantity")
-        _deliverytime = request.form.get("deliverytime")
-        _other = request.form.get("other")
-        order ={
+        _price = request.form.get("price")
+        _category = request.form.get("category")
+        product ={
             "name": _name,
-            "phone": _phone,
-            "size": _size,
-            "toppings": _toppings,
-            "quantity": _quantity,
-            "deliverytime": _deliverytime,
-            "other":_other}
-        orders.append(order)
-        print(orders)
-        return redirect(url_for('order_summary'))
-    return render_template('pizza_order.html')
+            "price": _price,
+            "category": _category,}
+        products.append(product)
+        print(product)
+        return redirect(url_for('index'))
+    return render_template('add.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
