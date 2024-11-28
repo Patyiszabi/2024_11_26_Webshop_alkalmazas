@@ -1,18 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 
 app = Flask(__name__)
 
-@app.route('/index', methods=["GET"])
-def index():
-    return render_template('index.html')
+products = [
+    {"name": "Laptop", "price": "250000 Ft", "category": "Elektronika"},
+    {"name": "Fotel", "price": "50000 Ft", "category": "Bútor"},
+    {"name": "Okosóra", "price": "75000 Ft", "category": "Elektronika"}
+]
 
-@app.route('/add')
-def add():
-    products = [
-        {"name": "Laptop", "price": "250000 Ft", "category": "Elektronika"},
-        {"name": "Fotel", "price": "50000 Ft", "category": "Bútor"},
-        {"name": "Okosóra", "price": "75000 Ft", "category": "Elektronika"}
-    ]
+@app.route('/')
+def index():
     return render_template('index.html', products=products)
 
 @app.route('/add', methods=["GET", "POST"])
@@ -21,18 +18,20 @@ def add_products():
         _name = request.form.get("name")
         _price = request.form.get("price")
         _category = request.form.get("category")
-        product ={
-            "name": _name,
-            "price": _price,
-            "category": _category,}
-        products.append(product)
-        print(product)
-        return redirect(url_for('index'))
+        
+        if _name and _price and _category:
+            product = {
+                "name": _name,
+                "price": _price,
+                "category": _category,
+            }
+            products.append(product)
+            print(f"Új termék hozzáadva: {product}")
+            return redirect(url_for('index'))
+        else:
+            print("Hibás adatbevitel, kérem, minden mezőt töltsön ki!")
+    
     return render_template('add.html')
-
-@app.route('/add', methods=["GET"])
-def getmethod():
-    return render_template('add.html', products=products)
 
 if __name__ == '__main__':
     app.run(debug=True)
