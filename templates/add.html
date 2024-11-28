@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Új termékek</title>
+    <title>Új termék hozzáadása</title>
 </head>
 <body>
-    <h1>Új termékek hozzáadása</h1>
-    
-    <form method="GET">
-      <input type="text" name="name" required><br>
-      <input type="text" name="price" required><br>
-      <input type="text" name="category" required><br>  
+    <h1>Új termék hozzáadása</h1>
+    <form action="{{ url_for('add_products') }}" method="POST">
+      <div class="input-wrapper">
+        <label for="name">Név:</label>
+        <input type="text" id="name" name="name" required><br>
+      </div>
 
-      <input type="submit" method="POST">
+      <div class="input-wrapper">
+        <label for="price">Ár:</label>
+        <input type="text" id="price" name="price"  required><br> 
+      </div>
 
+      <div class="input-wrapper">
+        <label for="category">Kategória:</label>
+        <input type="text" id="category" name="category"  required><br>
+      </div>
+
+
+      <div class="submit_button">
+        <button type="submit" id="submit-btn">Hozzáadás</button>
+      </div>
+        
     </form>
 
-    <p><a href="{{ url_for('home') }}">Vissza a főoldalra</a></p>
+    
+    <br>
+    
+    <a href="{{ url_for('index') }}">Vissza a főoldalra</a>
+
 </body>
 </html>
