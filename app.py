@@ -30,5 +30,9 @@ def add_products():
         return redirect(url_for('index'))
     return render_template('add.html')
 
+@app.route('/add', methods=["GET"])
+def getmethod():
+    return render_template('add.html', products=products)
+
 if __name__ == '__main__':
     app.run(debug=True)
