@@ -1,33 +1,143 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
 h1 {
-    color: #4CAF50;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #4CAF50;
-    color: white;
+    color: #2c3e50;
+    text-align: center;
+    cursor: default;
 }
 
 a {
-    color: #4CAF50;
+    color: #3498db;
     text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:active{
+    cursor: progress;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #3498db;
+    color: white;
+}
+
+td{
+    text-align: center;
+    cursor: default;
+  }
+
+td:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+form {
+    width: 50%;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2c3e50;
+    transition: all 0.3s ease;
+    transform-origin: top left;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus + label,
+input[type="text"]:valid + label {
+    transform: translateY(-25px);
+    font-size: 12px;
+    color: #3498db;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.7);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+button[type="submit"] {
+    color: black;
+    border: none;
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 140px;
+    height: 45px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease 0s;
+    text-align: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #2980b9;
+    transform: translateY(-7px);
+    box-shadow: 0px 15px 20px rgba(16, 134, 212, 0.4);
+    color: white;
+}
+
+.sumbit_button{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
