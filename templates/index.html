@@ -7,10 +7,13 @@
     <title>Webshop Főoldal</title>
 </head>
 <body>
+    <nav>
+        <ul>
+          <li><a href="{{ url_for('add_products') }}" class="link">Új termékek hozzáadása</a></li>
+        </ul>
+      </nav>
     <h1>Aktuális termékeink</h1>
     <img src="{{ url_for('static', filename='images/shop.jpg') }}" width="500">
-    <p><a id="link" href="{{ url_for('add_products') }}">Új termékek hozzáadása!</a></p>
-
     <table>
         <thead>
             <tr>
