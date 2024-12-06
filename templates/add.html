@@ -7,10 +7,9 @@
     <title>Új termék hozzáadása</title>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="{{ url_for('index') }}" class="link">Vissza a főoldalra</a></li>
-    </ul>
+  <div class="navbar">
+    <a href="{{ url_for('index') }}" class="link">Vissza a főoldalra</a>
+    <i class="fa-solid fa-house"></i>
   </nav>
     <h1>Új termék hozzáadása</h1>
     <form action="{{ url_for('add_products') }}" method="POST">
