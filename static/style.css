@@ -6,10 +6,12 @@ body {
     color: #333;
 }
 
-h1 {
+.heading {
     color: #2c3e50;
     text-align: center;
     cursor: default;
+    margin: auto;
+    width: 50%;
 }
 
 .link {
@@ -50,7 +52,6 @@ img {
 
 .navbar {
     margin-top: 20px;
-    width: 100%;
 }
 .navbar a{
     float: left;

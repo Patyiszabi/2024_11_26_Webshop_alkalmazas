@@ -9,10 +9,12 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="{{ url_for('index') }}" class="link">Vissza a főoldalra<i class="fa-solid fa-house"></a>
+    <a href="{{ url_for('index') }}" class="link">Vissza a főoldalra <i class="fa-solid fa-house"></i></a>
     
  </div>
+  <div class="heading">
     <h1>Új termék hozzáadása</h1>
+  </div>
     <form action="{{ url_for('add_products') }}" method="POST">
       <div class="input-wrapper">
         <input class="input" type="text" name="name" id="name" required><br>
